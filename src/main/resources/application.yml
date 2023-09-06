@@ -1,0 +1,35 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /parking-system
+spring:
+  datasource:
+    url: jdbc:h2:mem:parking_system;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: system
+    password: system
+  h2:
+    console.enabled: true
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+parking:
+  parkingStreetMap:
+    Java: 15
+    Jakarta: 13
+    Spring: 10
+    Azure: 10
+  paidParkingTimingMap:
+    startTime: 8
+    endTime: 23
+  freeParkingDay: MONDAY
+  monitorCronEx: 0 0/10 8-21 ? * MON-SAT
+  reportingCronEx: 0 0 22 ? * MON-SAT
+  report:
+    pdfDir: C:/pdf_fine_reports/
+    reportFileName: fine_report
+    localDateFormat: dd-MMM-yyyy
+    reportFileNameDateFormat: dd_MMM_yyyy
+    noOfColumns: 4
+    columnNames: Driver name,Street name,Observation date,Fine amount
